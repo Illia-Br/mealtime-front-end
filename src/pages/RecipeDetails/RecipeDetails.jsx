@@ -105,6 +105,12 @@ const RecipeDetails = ({user, handleDeleteRecipe, handleDeleteRestaurant, update
         </div>
       }
      
+      {recipe.restaurants?.length ? 
+        <h3 className={styles.pageText2}>Can be ordered in</h3>
+        :
+        null
+      }
+
       <div id={styles.restaurantDiv}>
         {recipe.restaurants?.map((restaurant, idx) => 
        <div key={idx}>

@@ -66,6 +66,16 @@
   width: fit-content;
 }
 
+.pageText2{
+  font-size: 20px;
+  color: white;
+  text-shadow: 2px 2px 2px black;
+  background-color: rgba(21, 16, 16, 0.742);
+  font-weight: 700;
+  margin: 3% auto 0;
+  width: fit-content;
+}
+
 .reviewsCont {
   margin: 2% auto 1%;
   background-color: white;
