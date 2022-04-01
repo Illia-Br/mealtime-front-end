@@ -17,13 +17,19 @@ function RecipeCard({recipe, user, handleDeleteRecipe, handleAddRecipeToDay, pro
       />
       
       <div className="card-body">
+        {loggedIn ? 
         <h2 className="card-text">
-          <Link
-            to={`/recipes/${recipe._id}`}
-          >
-            {recipe.name}
-          </Link></h2>
-        <p className="card-text">Ingredients: {recipe.ingredients} </p>
+        <Link
+          to={`/recipes/${recipe._id}`}
+        >
+          {recipe.name}
+        </Link></h2>
+        :
+        <>
+        <h2>{recipe.name}</h2>
+        <p>Please <Link to="/login">log in</Link> to see recipe details</p>
+        </>
+        }
         {recipe.calories ?
         <p className="card-text">Calories: {recipe.calories}</p>
         :null
@@ -43,6 +49,7 @@ function RecipeCard({recipe, user, handleDeleteRecipe, handleAddRecipeToDay, pro
                 to='/schedule'
                 state={{recipe}}
                 user={user}
+                id={styles.addToSchedule}
               >
                 Add to schedule
               </Link>
@@ -60,7 +67,7 @@ function RecipeCard({recipe, user, handleDeleteRecipe, handleAddRecipeToDay, pro
               >
                 Edit
               </Link>
-              <button
+              <button      
                 className="btn btn-sm btn-danger m-left"
                 onClick={()=> handleDeleteRecipe(recipe._id)}
               >
