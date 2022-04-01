@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 function ScheduleCardSunday(props) {
   let location = useLocation()
   return(
-    <div className="card">
+    < div className="card">
       <img 
         src={`https://picsum.photos/id/1080/300`}
         alt="A delicious meal"
@@ -22,7 +22,7 @@ function ScheduleCardSunday(props) {
           > Add To Sunday
         </button>
         }
-    </div>
+    </ div>
   )
 }
 
