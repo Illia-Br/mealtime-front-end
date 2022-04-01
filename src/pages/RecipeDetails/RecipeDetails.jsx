@@ -145,6 +145,7 @@ const RecipeDetails = ({user, handleDeleteRecipe, handleDeleteRestaurant, update
         <h3 className={styles.pageText}>No Reviews Yet</h3>
        } 
        </div>
+
        {user.profile === recipe.creator?._id ?
         null
         :
