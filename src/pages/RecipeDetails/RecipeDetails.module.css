@@ -1,18 +1,45 @@
-img.card-img-top{
-
-  
-}
-
 h1{
   margin-top: 3rem;
   font-size: 50px;
-  color: rgb(41, 37, 37);
+  color: rgb(34, 31, 31);
   text-decoration: underline;
+  background-color: rgba(5, 5, 5, 0.247);
+  margin-right: 5rem;
+  margin-left: 5rem;
 }
+
 
 h3{
   font-size: 35px;
-  color: rgb(3, 3, 3);
+  color: rgb(231, 225, 225);
   font-weight: 700;
+  background-color: rgba(0, 0, 0, 0.479);
 
 }
+
+h4{
+  font-size: 35px;
+ font-weight: 750;
+}
+
+table{
+  color: aliceblue;
+  font-size: 30px;
+  background-color: rgba(0, 0, 0, 0.356);
+  margin-left: 5rem;
+}
+
+textarea{
+  width: 50rem;
+}
+
+button{
+display: grid;
+}
+
+td{
+  padding: 10px;
+  margin-left: 30px;
+}
+
+

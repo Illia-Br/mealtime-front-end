@@ -41,7 +41,7 @@ function AddRecipe(props){
             <form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
               <div className="form-group mb-3">
                 <label htmlFor="name-input" className="form-label">
-                  recipe's Name (required)
+                  Recipe's Name (required)
                 </label>
                 <input 
                   type="text"
@@ -55,7 +55,7 @@ function AddRecipe(props){
            	</div>
               <div className="form-group mb-3">
                 <label htmlFor="ingredients-input" className="form-label">
-                  ingredients (required)
+                  Ingredients (required)
                 </label>
                 <input 
                   type="text"
@@ -69,7 +69,7 @@ function AddRecipe(props){
            	</div>
               <div className="form-group mb-3">
                 <label htmlFor="instructions-input" className="form-label">
-                instructions (required)
+                Instructions (required)
                 </label>
                 <textarea 
                   type="text"
@@ -96,7 +96,7 @@ function AddRecipe(props){
            	</div>
               <div className="form-group mb-3">
                 <label htmlFor="prepTime-input" className="form-label">
-                prepTime 
+                Prep time 
                 </label>
                 <input 
                   type="text"
@@ -105,6 +105,7 @@ function AddRecipe(props){
                   name="prepTime"
                   value={formData.prepTime}
                   onChange={handleChange}
+                  placeholder='Minutes'
                 />
            	</div>
              <div className="form-group mb-4">

@@ -106,7 +106,7 @@ const RecipeDetails = ({user, handleDeleteRecipe, handleDeleteRestaurant, update
           id="add-review-form"
           autoComplete="off" ref={formElement} onSubmit={handleSubmit}
         >
-          <label htmlFor="content-textarea">Review:</label>
+         <h1 className='review'>Write Review</h1>
           <textarea name="content"    id="content-textarea" value={formData.content}
 						onChange={handleChange}
             required>
@@ -140,13 +140,13 @@ const RecipeDetails = ({user, handleDeleteRecipe, handleDeleteRestaurant, update
         )}
       
       <h1>Reviews</h1>
+      <div id={styles.recipeDiv}>
       { recipe.reviews?.length ?
           <table>
             <thead>
               <tr>
                <th>Date</th>
                <th>Review</th>
-               <th>Critic</th>
               </tr>
             </thead>
             <tbody>
@@ -154,7 +154,6 @@ const RecipeDetails = ({user, handleDeleteRecipe, handleDeleteRestaurant, update
                 return <tr key ={review._id}>
                   <td>{review.createdAt?.slice(0,10)}</td>
                   <td>{review.content}</td>
-                  <td>{review.creator?.name}</td>
                 </tr>
               })}
             </tbody>
@@ -162,6 +161,7 @@ const RecipeDetails = ({user, handleDeleteRecipe, handleDeleteRestaurant, update
        :
         <h3>No Reviews Yet</h3>
        } 
+       </div>
        </div>
     </>
 
