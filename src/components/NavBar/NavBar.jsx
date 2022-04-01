@@ -20,8 +20,8 @@ const NavBar = ({ user, handleLogout }) => {
       <header className="App-header">
       <a href="/" className='tag'>MealTime</a> 
         <nav>
-          <NavLink to='/recipes'>All Recipes</NavLink>
-          <NavLink to='/restaurants'>All Restaurants</NavLink>
+          <NavLink to='/recipes'>Recipes</NavLink>
+          <NavLink to='/restaurants'>Restaurants</NavLink>
           <NavLink to="/login">Log In</NavLink>
           <NavLink to="/signup">Sign Up</NavLink>
         </nav>
