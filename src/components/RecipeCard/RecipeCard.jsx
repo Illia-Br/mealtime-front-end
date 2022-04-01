@@ -37,10 +37,10 @@ function RecipeCard({recipe, user, handleDeleteRecipe, handleAddRecipeToDay, pro
         :null
         }
         {recipe.prepTime ?
-        <p className="card-text">Preparation time {recipe.prepTime}</p>
+        <p className="card-text">Preparation time: {recipe.prepTime}</p>
         :null
         }
-        <p className="card-text">Restaurants {recipe.restaurants?.length}</p>
+        
       </div>
       
         {loggedIn &&

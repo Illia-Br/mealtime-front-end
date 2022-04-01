@@ -75,7 +75,7 @@ const App = () => {
   const handleDeleteRestaurant = id => {
     restaurantService.deleteOne(id)
     .then(deletedRestaurant => setRestaurants(restaurants.filter(restaurant => restaurant._id !== deletedRestaurant._id)))
-    navigate('/restaurants')
+    navigate('/profiles/profile')
   }
 
   const handleLogout = () => {

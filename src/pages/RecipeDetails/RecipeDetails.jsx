@@ -49,26 +49,27 @@ const RecipeDetails = ({user, handleDeleteRecipe, handleDeleteRestaurant, update
 
   return (
     <>
-    <div id={styles.recipeDiv}>
-    <h1>{recipe.name}</h1>
-    <img 
+    <div>
+    <h1 className={styles.title}>{recipe.name}</h1>
+    <img id={styles.recImg}
       src={recipe.picture ? recipe.picture : `https://amalghosh.com/assets/food13.jpg`} 
       alt="Recipe" 
       />
       
-    <h3>Ingredients: {recipe.ingredients}</h3>
+    <h3 className={styles.pageText}>Ingredients: {recipe.ingredients}</h3>
     {recipe.calories ?
-    <h3>Calories: {recipe.calories}</h3>
+    <h3 className={styles.pageText}>Calories: {recipe.calories}</h3>
     :null}
     {recipe.prepTime ?
-    <h3>Time To Prepare: {recipe.prepTime}</h3>
+    <h3 className={styles.pageText}>Time To Prepare: {recipe.prepTime}</h3>
     :null}
-    <h3>How to Make: {recipe.instructions}</h3>
+    <h3 className={styles.pageText}>How to Make: {recipe.instructions}</h3>
     
     {
       user.profile === recipe.creator?._id ?
         <div>
           <Link
+            style={{marginRight: 10}}
             className='btn btn-sm btn-primary'
             to='/schedule'
             state={{recipe}}
@@ -77,6 +78,7 @@ const RecipeDetails = ({user, handleDeleteRecipe, handleDeleteRestaurant, update
             Add to schedule
           </Link>
           <Link
+              style={{marginRight: 10}}
               className='btn btn-sm btn-primary'
               to='/restaurants/myRestaurants'
               state={{recipe}}
@@ -98,26 +100,14 @@ const RecipeDetails = ({user, handleDeleteRecipe, handleDeleteRestaurant, update
           </button>
         </div>
       :
-        <>
         <div>
-          <h4 className="card-text"> {recipe.creator?.name ? recipe.creator?.name : 'Ninja'}'s recipe</h4>
+          <h3 className={styles.pageText}> Created by {recipe.creator?.name ? recipe.creator?.name : 'Ninja'}</h3>
         </div>
-        <form 
-          id="add-review-form"
-          autoComplete="off" ref={formElement} onSubmit={handleSubmit}
-        >
-          <label htmlFor="content-textarea">Review:</label>
-          <textarea name="content"    id="content-textarea" value={formData.content}
-						onChange={handleChange}
-            required>
-          </textarea>
-          <button type="submit" disabled={!validForm}>Add Review</button>
-        </form>
-        </>
       }
-      
+     
+      <div id={styles.restaurantDiv}>
         {recipe.restaurants?.map((restaurant, idx) => 
-       <div key={idx} className={styles.container}>
+       <div key={idx}>
         <RestaurantCard
         
         restaurant={restaurant} 
@@ -138,31 +128,39 @@ const RecipeDetails = ({user, handleDeleteRecipe, handleDeleteRestaurant, update
         
         </div>
         )}
+      </div>
       
-      <h1>Reviews</h1>
+      <h1 className={styles.title2}>Reviews</h1>
+
       { recipe.reviews?.length ?
-          <table>
-            <thead>
-              <tr>
-               <th>Date</th>
-               <th>Review</th>
-               <th>Critic</th>
-              </tr>
-            </thead>
-            <tbody>
+          <div className={styles.reviewsCont}>
             {recipe.reviews.map(review => {
-                return <tr key ={review._id}>
-                  <td>{review.createdAt?.slice(0,10)}</td>
-                  <td>{review.content}</td>
-                  <td>{review.creator?.name}</td>
-                </tr>
+                return <div key ={review._id}>
+                  <p>{review.content}</p>
+                  <p>Left on {review.createdAt?.slice(0,10)} by {review.creator?.name}</p>
+                </div>
               })}
-            </tbody>
-          </table>
+          </div>
        :
-        <h3>No Reviews Yet</h3>
+        <h3 className={styles.pageText}>No Reviews Yet</h3>
        } 
        </div>
+       {user.profile === recipe.creator?._id ?
+        null
+        :
+        <form 
+          id={styles.addReview}
+          autoComplete="off" ref={formElement} onSubmit={handleSubmit}
+        >
+          <label htmlFor="content-textarea">Leave Review:</label><br />
+          <textarea name="content"    id="content-textarea" value={formData.content}
+						onChange={handleChange}
+            required>
+          </textarea><br />
+          <button type="submit" disabled={!validForm}>Add</button>
+        </form>
+        }
+       
     </>
 
   )

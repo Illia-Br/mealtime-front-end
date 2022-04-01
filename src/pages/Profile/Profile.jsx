@@ -42,7 +42,7 @@ const Profile = (props) => {
         {showRecipes ? 
           <div id={styles.recipeDiv}> 
             {props.recipes.map(recipe => (
-              recipe.creator._id === props.user.profile ? 
+              recipe.creator?._id === props.user.profile ? 
               <RecipeCard
                 key={recipe._id}
                 recipe={recipe}
